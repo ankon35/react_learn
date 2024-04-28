@@ -1,12 +1,34 @@
-import { useState } from 'react'
+
+import StartGame from "./components/StartGame";
+import { useState } from "react";
+import GamePlay from "./components/GamePlay";
+
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [isGameStarted ,  setIsGameStarted] = useState(false);
+
+  const toggleGamePlay = () => {
+    setIsGameStarted((prev) => !prev);
+  }
+
 
   return (
-    <div>Ankon</div>
+
+
+    <>
+    {
+      isGameStarted ?  <GamePlay /> : <StartGame
+      
+      toggle = {toggleGamePlay}
+      />
+    }
+
+      
+    </>
+   
   )
 }
 
