@@ -1,40 +1,72 @@
-import { useState } from "react";
+
 import styled from "styled-components";
 
 
-const NumberSelector = () => {
+const NumberSelector = ({
+  setError , error , selectedNumber , setSelectedNumber 
+}) => {
 
-    const[selectedNumber , setSelectedNumber] = useState();
+    const NumberSelectorHandler1 = (value) => {
+      setSelectedNumber(1)
+      setError("")
+    }
+
+    const NumberSelectorHandler2 = (value) => {
+      setSelectedNumber(2)
+      setError("")
+    }
+
+    const NumberSelectorHandler3 = (value) => {
+      setSelectedNumber(3)
+      setError("")
+    }
+
+    const NumberSelectorHandler4 = (value) => {
+      setSelectedNumber(4)
+      setError("")
+    }
+
+    const NumberSelectorHandler5 = (value) => {
+      setSelectedNumber(5)
+      setError("")
+    }
+
+    const NumberSelectorHandler6 = (value) => {
+      setSelectedNumber(6)
+      setError("")
+    }
 
     console.log(selectedNumber);
 
   return (
     <NumberSelectorContainer >
+
+        <p className="error">{error}</p>
         <div className="flex">
         <Box
         isSelected = {1 == selectedNumber}
-        onClick={ () => setSelectedNumber(1)}
+        onClick={ () => NumberSelectorHandler1(1)}
         >1</Box>
         <Box
         isSelected = {2 == selectedNumber}
-         onClick={ () => setSelectedNumber(2)}
+         onClick={ () => NumberSelectorHandler2(2)}
         >2</Box>
         <Box
         isSelected = {3 == selectedNumber}
-         onClick={ () => setSelectedNumber(3)}
+         onClick={ () => NumberSelectorHandler3(3)}
         >3</Box>
         <Box
         isSelected = {4 == selectedNumber}
-         onClick={ () => setSelectedNumber(4)}
+         onClick={ () => NumberSelectorHandler4(4)}
         >4</Box>
 
         <Box
         isSelected = {5 == selectedNumber}
-         onClick={ () => setSelectedNumber(5)}
+         onClick={ () => NumberSelectorHandler5(5)}
         >5</Box>
         <Box
         isSelected = {6 == selectedNumber}
-         onClick={ () => setSelectedNumber(6)}
+         onClick={ () => NumberSelectorHandler6(6)}
         >6</Box>
        
         </div>
@@ -61,6 +93,11 @@ const NumberSelectorContainer = styled.div`
   }
   p{
     font-size: 34px;
+  }
+
+  .error{
+    color: red;
+    font-size: 25px;
   }
 
 `
